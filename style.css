@@ -22,5 +22,15 @@ p {
     background-color: #ffffff;
     width: 40%;
     margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px
+}
+.info {
+    border-style: solid;
+    border-radius: 10px;
+    border-color: #ffffff;
+    background-color: #ffffff;
+    width: 40%;
+    margin-left: auto;
     margin-right: auto
 }

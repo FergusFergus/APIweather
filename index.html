@@ -37,9 +37,18 @@
                document.getElementById("weather-report").innerHTML = output;
            }
        }
-       ajaxRequest.open("GET", "http://api.openweathermap.org/data/2.5/weather?q=Medford&units=imperial&appid=cea169b06cef5b843b844bd3ebc6d07f", true);
+       ajaxRequest.open("GET", "https://api.openweathermap.org/data/2.5/weather?q=Medford&units=imperial&appid=cea169b06cef5b843b844bd3ebc6d07f", true);
        ajaxRequest.send();
     </script>
+
+    <div class=info>
+        <p>API used: Open Weather Map</p>
+        <p>URL of API source: https://openweathermap.org/</p>
+        <p>This website features some basic information about Medford weather
+           provided by the API.</p>
+        <p>This information could be useful for tourism compainies/websites,
+           or outdoor event planning.</p>
+    </div>
 </body>
 
 </html>
