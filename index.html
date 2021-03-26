@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>API Fun</title>
+    <script src="jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <h1>Medford Weather Report</h1>
+
+    <div class="weather-report" id="weather-report">
+
+    </div>
+
+    <script langauge="javascript">
+        var ajaxRequest = new XMLHttpRequest();
+
+        var ajaxRequest = new XMLHttpRequest();
+        ajaxRequest.onreadystatechange = function() {
+	       if (this.readyState == 4 && this.status == 200) {
+               var data = this.responseText;
+               var info = JSON.parse(data);
+               output = "<h2>Coordinates</h2>";
+               output += "<p>" + info["coord"]["lon"] + ", " + info["coord"]["lat"] + "</p>";
+
+               output += "<h2>Weather</h2>";
+               output += "<p>" + info["weather"][0]["main"] + ": " + info["weather"][0]["description"] + "</p>";
+
+               output += "<h2>Temperature</h2>";
+               output += "<p>" + info["main"]["temp"]+ " degrees</p>";
+               output += "<p>Feels like: " + info["main"]["feels_like"]+ " degrees</p>";
+               output += "<p>Humidity: " + info["main"]["humidity"]+ "%</p>";
+
+               document.getElementById("weather-report").innerHTML = output;
+           }
+       }
+       ajaxRequest.open("GET", "http://api.openweathermap.org/data/2.5/weather?q=Medford&units=imperial&appid=cea169b06cef5b843b844bd3ebc6d07f", true);
+       ajaxRequest.send();
+    </script>
+</body>
+
+</html>
